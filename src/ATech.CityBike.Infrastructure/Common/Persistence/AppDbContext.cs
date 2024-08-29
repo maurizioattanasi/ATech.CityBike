@@ -1,10 +1,16 @@
-namespace ns;
+using System.Reflection;
+
+using ATech.CityBike.Domain.Trips;
+
+using Microsoft.EntityFrameworkCore;
+
+namespace ATech.CityBike.Infrastructure.Common.Persistence;
 
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
-    // public DbSet<FileItem> Files { get; init; }
+    public DbSet<Trip> Trips { get; init; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 

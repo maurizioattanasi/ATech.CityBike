@@ -51,3 +51,95 @@ In the **Infrastructure** project the same folder structure will be implemented
     "usertype": "Subscriber"
 }
 ```
+
+```csharp
+// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    public class Date
+    {
+        [JsonProperty("$numberLong")]
+        public string NumberLong;
+    }
+
+    public class EndStationLocation
+    {
+        [JsonProperty("coordinates")]
+        public List<double?> Coordinates;
+
+        [JsonProperty("type")]
+        public string Type;
+    }
+
+    public class Id
+    {
+        [JsonProperty("$oid")]
+        public string Oid;
+    }
+
+    public class Root
+    {
+        [JsonProperty("_id")]
+        public Id Id;
+
+        [JsonProperty("bikeid")]
+        public int? Bikeid;
+
+        [JsonProperty("birth year")]
+        public int? BirthYear;
+
+        [JsonProperty("end station id")]
+        public int? EndStationId;
+
+        [JsonProperty("end station location")]
+        public EndStationLocation EndStationLocation;
+
+        [JsonProperty("end station name")]
+        public string EndStationName;
+
+        [JsonProperty("gender")]
+        public int? Gender;
+
+        [JsonProperty("start station id")]
+        public int? StartStationId;
+
+        [JsonProperty("start station location")]
+        public StartStationLocation StartStationLocation;
+
+        [JsonProperty("start station name")]
+        public string StartStationName;
+
+        [JsonProperty("start time")]
+        public StartTime StartTime;
+
+        [JsonProperty("stop time")]
+        public StopTime StopTime;
+
+        [JsonProperty("tripduration")]
+        public int? Tripduration;
+
+        [JsonProperty("usertype")]
+        public string Usertype;
+    }
+
+    public class StartStationLocation
+    {
+        [JsonProperty("coordinates")]
+        public List<double?> Coordinates;
+
+        [JsonProperty("type")]
+        public string Type;
+    }
+
+    public class StartTime
+    {
+        [JsonProperty("$date")]
+        public Date Date;
+    }
+
+    public class StopTime
+    {
+        [JsonProperty("$date")]
+        public Date Date;
+    }
+
+
+```
