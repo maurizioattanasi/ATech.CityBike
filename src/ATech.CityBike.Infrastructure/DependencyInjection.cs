@@ -15,6 +15,16 @@ public static class DependencyInjection
 
     private static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
     {
+        var connectionString = configuration.GetConnectionString("AppContext");
+
+        // services
+        //     .AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString,
+        //                                                                 providerOptions => providerOptions.EnableRetryOnFailure()));
+
+        // services.AddScoped<IVehicleRepository, VehicleRepository>();
+
+        // services.AddScoped<IRepository, Repository>();
+
         return services;
     }
 }
